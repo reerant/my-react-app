@@ -12,6 +12,7 @@ function Movie(props) {
             alt="img"
           ></img>
         </div>
+        {/*Movie component gets its properties from Display movies array -> data.results from API call  */}
         <div className="col-md-9">
           <h3>{props.movieProps.title}</h3>
           <h5>Story Overview:</h5>
