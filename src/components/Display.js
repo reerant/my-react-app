@@ -15,16 +15,16 @@ class Display extends React.Component {
   }
   //gets the searchString from child component Search and uses that in API call query
   filterBySearch = searchString => {
-    console.log(searchString);
     if (searchString !== "") {
       fetch(
-        "https://api.themoviedb.org/3/search/movie?api_key=4dc1cd589c5dc2d032439dc978cbb411&language=en-US&query=" +
+        "https://api.themoviedb.org/3/search/movie?api_key=" +
+          process.env.REACT_APP_API_KEY +
+          "&language=en-US&query=" +
           searchString +
           "&page=1&include_adult=false"
       )
         .then(response => response.json())
         .then(data => {
-          //console.log(data.results);
           this.setState({
             //movies array filled with movie data
             movies: data.results
@@ -34,20 +34,15 @@ class Display extends React.Component {
   };
 
   filterByGenre = genre => {
-    console.log(genre);
     if (genre !== "") {
-      // const x = "Results for: " + genre;
-      // this.setState({
-      //   title: x
-      // });
-      // console.log(x);
       fetch(
-        "https://api.themoviedb.org/3/discover/movie?api_key=4dc1cd589c5dc2d032439dc978cbb411&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" +
+        "https://api.themoviedb.org/3/discover/movie?api_key=" +
+          process.env.REACT_APP_API_KEY +
+          "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" +
           genre
       )
         .then(response => response.json())
         .then(data => {
-          //console.log(data.results);
           this.setState({
             //movies array filled with movie data
             movies: data.results
@@ -57,21 +52,16 @@ class Display extends React.Component {
   };
 
   filterBySorting = option => {
-    console.log(option);
     if (option !== "") {
-      // const x = "Results for: " + option;
-      // this.setState({
-      //   title: x
-      // });
-      // console.log(x);
       fetch(
         "https://api.themoviedb.org/3/movie/" +
           option +
-          "?api_key=4dc1cd589c5dc2d032439dc978cbb411&language=en-US&page=1"
+          "?api_key=" +
+          process.env.REACT_APP_API_KEY +
+          "&language=en-US&page=1"
       )
         .then(response => response.json())
         .then(data => {
-          //console.log(data.results);
           this.setState({
             //movies array filled with movie data
             movies: data.results
@@ -94,7 +84,6 @@ class Display extends React.Component {
   }
 
   render() {
-    console.log(this.state.movies);
     return (
       <div className="container-fluid">
         {/*Search component passes query string that user has typed into the input field */}

@@ -58,7 +58,9 @@ class Search extends Component {
   // gets the genre options from API
   componentDidMount() {
     fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=4dc1cd589c5dc2d032439dc978cbb411&language=en-US"
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+        process.env.REACT_APP_API_KEY +
+        "&language=en-US"
     )
       .then(response => response.json())
       .then(data => {
