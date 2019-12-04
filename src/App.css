@@ -1,39 +1,46 @@
 .Center-text {
   text-align: center;
-
 }
 .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(56, 50, 50);
+  background: rgb(108, 5, 5);
+
   color: white;
   text-align: center;
+  padding-top: 15px;
 }
 
 .Jumbotron {
-  background-color: rgb(56, 50, 50)!important;
-  color: white;
-
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 10%,
+    rgba(108, 5, 5, 1) 90%
+  ) !important;
+  color: black;
 }
 
-.navbar{
-  background-color: rgb(176, 176, 180);
-
+.navbar {
+  background-color: rgb(214, 214, 218);
 }
 
 .navbar-header {
-  font-size: 25px;
-
+  font-size: 20px;
 }
-.navbar-login{
-  font-size: 25px;
-
+.navbar-login {
+  font-size: 20px;
 }
 
 .Jumbotron h1 {
-  font-size: 80px;
+  font-size: 70px;
+  text-shadow: 2px 2px 4px #e6d0d0;
+}
+
+.Jumbotron h3 {
+  text-shadow: 2px 2px 4px #e6d0d0;
 }
 
 .movieList {
@@ -42,12 +49,78 @@
   justify-content: center;
   align-items: center;
 }
+
 .movie {
   padding-bottom: 20px;
   padding-top: 20px;
   margin-top: 20px;
   background-color: white;
- 
   border-radius: 5px;
-  border-style: solid;
+  border-style: groove;
+}
+.form {
+  padding-bottom: 20px;
+}
+
+.searchForm {
+  border-style: groove;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  background-color: white;
+}
+
+.formLabel {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.buttonStyle {
+  font-size: 17px;
+
+  margin-bottom: 10px;
+}
+
+.responsive-img {
+  position: relative;
+  max-width: 50%;
+  padding-bottom: 70px;
+}
+
+a:link {
+  color: white !important;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white !important;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(176, 176, 180) !important;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+input[type="radio"] {
+  transform: scale(2);
+}
+
+.TitleOfSearch {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.movieListing {
+  margin-bottom: 100px;
+}
+
+.image {
+  box-shadow: 0 14px 24px 0 rgba(0, 0, 0, 0.2),
+    0 14px 12px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px;
+  border-radius: 5%;
 }
