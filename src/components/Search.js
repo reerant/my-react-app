@@ -27,7 +27,6 @@ class Search extends Component {
   // passing search/sorting data to display component where it is used in API calls
   sendDataToDisplay = event => {
     event.preventDefault();
-
     // passes whatever user types into input field
     this.props.getSearchString(this.state.searchString);
 
@@ -47,7 +46,7 @@ class Search extends Component {
     event.target.reset();
     this.setState({ selectedGenre: "" });
     this.setState({ searchString: "" });
-    this.setState({ selectedSorting: "" });
+    this.setState({ selectedSorting: "" });        
   };
   // displays everything that user types into input field
   handleChange(event) {
