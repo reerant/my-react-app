@@ -117,6 +117,7 @@ class Search extends Component {
     //mapping sorting options as radio buttons
     let sortingItems = this.sortingOptions.map(sorting => (
       <Form.Check
+        key={sorting.query}
         style={{ marginBottom: "8px" }}
         value={sorting.query}
         type="radio"

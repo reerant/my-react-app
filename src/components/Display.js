@@ -110,7 +110,7 @@ class Display extends React.Component {
               </div>
             </div>
           ) : (
-            this.state.movies.map(movie => <Movie movieProps={movie} />)
+            this.state.movies.map(movie => <Movie key={movie.id} movieProps={movie} />)
           )}
         </div>
       </div>
