@@ -48,10 +48,12 @@ class Search extends Component {
     this.setState({ searchString: "" });
     this.setState({ selectedSorting: "" });        
   };
-  // displays everything that user types into input field
+  // displays what user types into input field 
+  // and also clears selectedGenre and selectedSorting so that user is allowed to use only one search functionality at a time. 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value, title: value });
+    this.setState({ [name]: value, title: value, selectedGenre: "",
+      selectedSorting: "" });
   }
 
   // gets the genre options from API
@@ -81,8 +83,11 @@ class Search extends Component {
     const genreTitle = event.currentTarget.value;
 
     //setting the id and name of the selected genre
+     // and also clears searchString and selectedSorting so that user is allowed to use only one search functionality at a time. 
     this.setState({
       selectedGenre: genreId,
+      selectedSorting: "",
+      searchString: "",
       title: genreTitle
     });
   }
@@ -100,8 +105,11 @@ class Search extends Component {
     const selectedOption = event.currentTarget.value;
 
     // setting the sorting's title and api call value
+     // and also clears searchString and selectedGenre so that user is allowed to use only one search functionality at a time. 
     this.setState({
       selectedSorting: selectedOption,
+      selectedGenre: "",
+      searchString: "",
       title: labelTitle
     });
   }
@@ -147,7 +155,7 @@ class Search extends Component {
             <Form.Label className="formLabel">Or search by genre</Form.Label>
             <Form.Control as="select" onChange={this.onSelect}>
               {/*Choose genre is the "default" option and data-key is empty so that it wont be passed to display and used in api calls */}
-              <option data-key="">Choose genre</option>
+              <option data-key="" selected={this.state.selectedGenre === ""}>Choose genre</option>
               {/* listing all of the genre options */}
               {dropdownItems}
             </Form.Control>
