@@ -95,7 +95,7 @@ class Display extends React.Component {
     // then the displayResults shows default (popcorn) img
     if (this.state.movies === null) {
       displayResult = (
-        <div className="container" style={{ paddingTop: "50px" }}>
+        <div className="container" style={{ paddingTop: "50px", paddingBottom:"50px" }}>
           <div className="row justify-content-center">
             <img src={image} alt="popcorn" className="responsive-img" />
           </div>
