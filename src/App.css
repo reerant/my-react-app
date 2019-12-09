@@ -6,8 +6,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: rgb(108, 5, 5);
-
+  background: rgba(115, 114, 114, 1);
   color: white;
   text-align: center;
   padding-top: 15px;
@@ -17,10 +16,11 @@
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
-    rgba(255, 255, 255, 1) 10%,
-    rgba(108, 5, 5, 1) 90%
+    rgba(255, 255, 255, 1) 0%,
+    rgba(115, 114, 114, 1) 93%
   ) !important;
   color: black;
+  border-radius: 0rem !important;
 }
 
 .navbar {
@@ -35,6 +35,7 @@
 }
 
 .Jumbotron h1 {
+  color: rgb(128, 13, 13);
   font-size: 70px;
   text-shadow: 2px 2px 4px #e6d0d0;
 }

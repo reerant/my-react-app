@@ -26,36 +26,48 @@ class Search extends Component {
 
   // passing search/sorting data to display component where it is used in API calls
   sendDataToDisplay = event => {
-    event.preventDefault();
-    // passes whatever user types into input field
-    this.props.getSearchString(this.state.searchString);
+    // checks if the form fields are empty, if true alert message pops up
+    if (
+      this.state.searchString === "" &&
+      this.state.selectedGenre === "" &&
+      this.state.selectedSorting === ""
+    ) {
+      alert("Please type in movie title or choose from other options.");
+    } else {
+      event.preventDefault();
+      // passes whatever user types into input field
+      this.props.getSearchString(this.state.searchString);
 
-    // passes the genre Id that user selects
-    this.props.getGenre(this.state.selectedGenre);
+      // passes the genre Id that user selects
+      this.props.getGenre(this.state.selectedGenre);
 
-    // passes the sorting option that user selects
-    this.props.getSorting(this.state.selectedSorting);
+      // passes the sorting option that user selects
+      this.props.getSorting(this.state.selectedSorting);
 
-    // passes the title to the display that shows what option is used for searching/sorting movies after user clicks search button :
-    //if search => title = whatever user types in
-    //if genre => title = value from the dropdown
-    //if sorting options => title = label from the radio button options
-    this.props.getTitle(this.state.title);
+      // passes the title to the display that shows what option is used for searching/sorting movies after user clicks search button :
+      //if search => title = whatever user types in
+      //if genre => title = genre name from the dropdown
+      //if sorting options => title = label from the radio button options
+      this.props.getTitle(this.state.title);
 
-    // after search button is clicked the form fields are all cleared
-    event.target.reset();
-    this.setState({ selectedGenre: "" });
-    this.setState({ searchString: "" });
-    this.setState({ selectedSorting: "" });        
+      // after search button is clicked the form fields are all cleared
+      event.target.reset();
+      this.setState({ selectedGenre: "" });
+      this.setState({ searchString: "" });
+      this.setState({ selectedSorting: "" });
+    }
   };
-  // displays what user types into input field 
-  // and also clears selectedGenre and selectedSorting so that user is allowed to use only one search functionality at a time. 
+  // displays what user types into input field
+  // and also clears selectedGenre and selectedSorting so that user is allowed to use only one search functionality at a time.
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value, title: value, selectedGenre: "",
-      selectedSorting: "" });
+    this.setState({
+      [name]: value,
+      title: value,
+      selectedGenre: "",
+      selectedSorting: ""
+    });
   }
-
   // gets the genre options from API
   componentDidMount() {
     fetch(
@@ -74,22 +86,29 @@ class Search extends Component {
 
   //handles the genre selecting feature
   onSelect(event) {
-    //gets the selected genre's id from data-key attribute
-    const selectedIndex = event.target.options.selectedIndex;
-    const genreId = event.target.options[selectedIndex].getAttribute(
-      "data-key"
-    );
-    //gets the name of the selected genre
-    const genreTitle = event.currentTarget.value;
+    //checks if user has picked a genre option, if there is no value it means that the default option "choose genre" is active
+    if (event.target.value !== "") {
+      //gets the selected genre's id
+      const genreId = Number(event.currentTarget.value);
+      //gets the name of the selected genre by matching the selected genre id in the genredata and getting the name of the right match.
+      const foundGenreData = this.state.genreData.find(
+        genre => genre.id === genreId
+      );
+      const genreTitle = foundGenreData.name;
 
-    //setting the id and name of the selected genre
-     // and also clears searchString and selectedSorting so that user is allowed to use only one search functionality at a time. 
-    this.setState({
-      selectedGenre: genreId,
-      selectedSorting: "",
-      searchString: "",
-      title: genreTitle
-    });
+      //setting the id and name of the selected genre
+      // and also clears searchString and selectedSorting so that user is allowed to use only one search functionality at a time.
+      this.setState({
+        selectedGenre: genreId,
+        selectedSorting: "",
+        searchString: "",
+        title: genreTitle
+      });
+    } else {
+      this.setState({
+        selectedGenre: ""
+      });
+    }
   }
 
   //handles the sorting options feature
@@ -105,7 +124,7 @@ class Search extends Component {
     const selectedOption = event.currentTarget.value;
 
     // setting the sorting's title and api call value
-     // and also clears searchString and selectedGenre so that user is allowed to use only one search functionality at a time. 
+    // and also clears searchString and selectedGenre so that user is allowed to use only one search functionality at a time.
     this.setState({
       selectedSorting: selectedOption,
       selectedGenre: "",
@@ -117,12 +136,12 @@ class Search extends Component {
   render() {
     //mapping genre items for dropdown
     let dropdownItems = this.state.genreData.map(genre => (
-      <option data-key={genre.id} key={genre.id}>
+      <option value={genre.id} key={genre.id}>
         {genre.name}
       </option>
     ));
 
-    //mapping sorting options as radio buttons
+    //mapping sorting options for radio buttons
     let sortingItems = this.sortingOptions.map(sorting => (
       <Form.Check
         key={sorting.query}
@@ -153,9 +172,13 @@ class Search extends Component {
           </Form.Group>
           <Form.Group>
             <Form.Label className="formLabel">Or search by genre</Form.Label>
-            <Form.Control as="select" onChange={this.onSelect}>
-              {/*Choose genre is the "default" option and data-key is empty so that it wont be passed to display and used in api calls */}
-              <option data-key="" selected={this.state.selectedGenre === ""}>Choose genre</option>
+            <Form.Control
+              as="select"
+              value={this.state.selectedGenre}
+              onChange={this.onSelect}
+            >
+              {/*Choose genre is the "default" option and value is empty so that it wont be passed to display and used in api calls */}
+              <option value="">Choose genre</option>
               {/* listing all of the genre options */}
               {dropdownItems}
             </Form.Control>
@@ -167,7 +190,7 @@ class Search extends Component {
             {/* listing all of the sorting options: most popular, top rated and upcoming */}
             {sortingItems}
           </Form.Group>
-          {/* when  button gets clicked data is "send" to Display component => function sendDataToDisplay*/}
+          {/* when  button gets clicked data is handled => function sendDataToDisplay*/}
           <Button
             variant="dark"
             type="submit"
