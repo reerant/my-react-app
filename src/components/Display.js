@@ -29,12 +29,11 @@ class Display extends React.Component {
             //movies array filled with movie data
             movies: data.results
           });
-         
         });
     }
   };
 
-//gets the selected genre and uses that in API call query
+  //gets the selected genre and uses that in API call query
   filterByGenre = genre => {
     if (genre !== "") {
       fetch(
@@ -53,7 +52,7 @@ class Display extends React.Component {
     }
   };
 
-//gets the selected sorting option and uses that in API call query
+  //gets the selected sorting option and uses that in API call query
   filterBySorting = option => {
     if (option !== "") {
       fetch(
@@ -73,7 +72,7 @@ class Display extends React.Component {
     }
   };
 
-  //shows what search string or sorting option/genre is used 
+  //shows what search string or sorting option/genre is used
   setTitle = newTitle => {
     const x = "Results for: " + newTitle;
     this.setState({
@@ -95,7 +94,13 @@ class Display extends React.Component {
     // then the displayResults shows default (popcorn) img
     if (this.state.movies === null) {
       displayResult = (
-        <div className="container" style={{ paddingTop: "50px", paddingBottom:"50px" }}>
+        <div
+          className="container"
+          style={{ paddingTop: "25px", paddingBottom: "100px" }}
+        >
+          <div className="row justify-content-center">
+          <h2 style={{ color: "rgb(128, 13, 13)" }}>Start searching!</h2>
+          </div>
           <div className="row justify-content-center">
             <img src={image} alt="popcorn" className="responsive-img" />
           </div>
@@ -112,7 +117,9 @@ class Display extends React.Component {
             {this.state.movies.length === 0 ? (
               <div className="container" style={{ paddingTop: "50px" }}>
                 <div className="row justify-content-center">
-                  <h2 style={{color:"rgb(128, 13, 13)"}} >Sorry no movies found.</h2>
+                  <h2 style={{ color: "rgb(128, 13, 13)" }}>
+                    Sorry no movies found.
+                  </h2>
                 </div>
               </div>
             ) : (
