@@ -32,6 +32,7 @@ class Search extends Component {
       this.state.selectedGenre === "" &&
       this.state.selectedSorting === ""
     ) {
+      event.preventDefault();
       alert("Please type in movie title or choose from other options.");
     } else {
       event.preventDefault();

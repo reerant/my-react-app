@@ -5,7 +5,7 @@ import errorImage from "./images/error.jpg";
 function Movie(props) {
   // checks if the movie has image available or not, if true displays the image, if not displays the default errorImage
   let moviePoster = props.movieProps.poster_path
-    ? "http://image.tmdb.org/t/p/w342//" + props.movieProps.poster_path
+    ? "https://image.tmdb.org/t/p/w342//" + props.movieProps.poster_path
     : errorImage;
 
   return (
