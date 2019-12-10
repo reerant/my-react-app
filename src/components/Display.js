@@ -96,10 +96,10 @@ class Display extends React.Component {
       displayResult = (
         <div
           className="container"
-          style={{ paddingTop: "25px", paddingBottom: "100px" }}
+          style={{ paddingTop: "25px", paddingBottom: "20px" }}
         >
           <div className="row justify-content-center">
-          <h2 style={{ color: "rgb(128, 13, 13)" }}>Start searching!</h2>
+            <h2 style={{ color: "rgb(128, 13, 13)" }}>Start searching!</h2>
           </div>
           <div className="row justify-content-center">
             <img src={image} alt="popcorn" className="responsive-img" />
@@ -111,29 +111,42 @@ class Display extends React.Component {
       displayResult = (
         <>
           <TitleOfSearch title={this.state.title} clearList={this.resetList} />
-          <div className="row movieListing">
-            {/* checks if the movies array is empty, if true displays message,
+          <div className="container">
+            <div className="row movieListing">
+              {/* checks if the movies array is empty, if true displays message,
       else movies are mapped one by one into separate Movie components*/}
-            {this.state.movies.length === 0 ? (
-              <div className="container" style={{ paddingTop: "50px" }}>
-                <div className="row justify-content-center">
-                  <h2 style={{ color: "rgb(128, 13, 13)" }}>
-                    Sorry no movies found.
-                  </h2>
+              {this.state.movies.length === 0 ? (
+                <div className="container" style={{ paddingTop: "50px" }}>
+                  <div className="row justify-content-center">
+                    <h2 style={{ color: "rgb(128, 13, 13)" }}>
+                      Sorry no movies found.
+                    </h2>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              this.state.movies.map(movie => (
-                <Movie key={movie.id} movieProps={movie} />
-              ))
-            )}
+              ) : (
+                this.state.movies.map(movie => (
+                  <Movie key={movie.id} movieProps={movie} />
+                ))
+              )}
+            </div>
           </div>
         </>
       );
     }
 
     return (
-      <div className="container-fluid">
+      <div
+        className="container"
+        style={{
+          backgroundColor: " rgb(223, 223, 223)",
+          paddingTop: "50px",
+          paddingBottom: "50px",
+          borderRadius: "10px",
+          marginBottom: "80px",
+          borderStyle: "double",
+          boxShadow: "5px 10px 18px #888888"
+        }}
+      >
         {/*Search component passes query string that user has typed into the input field */}
         <Search
           getSearchString={this.filterBySearch}

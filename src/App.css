@@ -22,6 +22,9 @@
   ) !important;
   color: black;
   border-radius: 0rem !important;
+  margin-bottom: 0px !important;
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
 }
 
 .navbar {
@@ -57,8 +60,10 @@
   padding-top: 20px;
   margin-top: 20px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   border-style: groove;
+
+
 }
 .form {
   padding-bottom: 20px;
@@ -117,6 +122,7 @@ input[type="radio"] {
 
 .movieListing {
   margin-bottom: 100px;
+
 }
 
 .image {
@@ -124,4 +130,4 @@ input[type="radio"] {
     0 14px 12px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 20px;
   border-radius: 5%;
-}
+   }
