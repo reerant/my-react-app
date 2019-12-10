@@ -1,6 +1,7 @@
 import React from "react";
 import Movie from "./Movie.js";
 import Search from "./Search.js";
+import ErrorBoundary from "./ErrorBoundary.js";
 import image from "./images/popcorn.png";
 import TitleOfSearch from "./TitleOfSearch.js";
 
@@ -97,10 +98,7 @@ class Display extends React.Component {
         <div
           className="container"
           style={{ paddingTop: "25px", paddingBottom: "20px" }}
-        >
-          <div className="row justify-content-center">
-            <h2 style={{ color: "rgb(128, 13, 13)" }}>Start searching!</h2>
-          </div>
+        >          
           <div className="row justify-content-center">
             <img src={image} alt="popcorn" className="responsive-img" />
           </div>
@@ -110,7 +108,13 @@ class Display extends React.Component {
       // shows the title of the search, clear list - button and the results for the movie search/query
       displayResult = (
         <>
-          <TitleOfSearch title={this.state.title} clearList={this.resetList} />
+          {/*ErrorBoundary catches error and shows the fallback UI */}
+          <ErrorBoundary>
+            <TitleOfSearch
+              title={this.state.title}
+              clearList={this.resetList}
+            />
+          </ErrorBoundary>
           <div className="container">
             <div className="row movieListing">
               {/* checks if the movies array is empty, if true displays message,
@@ -118,7 +122,7 @@ class Display extends React.Component {
               {this.state.movies.length === 0 ? (
                 <div className="container" style={{ paddingTop: "50px" }}>
                   <div className="row justify-content-center">
-                    <h2 style={{ color: "rgb(128, 13, 13)" }}>
+                    <h2 className="heading2">
                       Sorry no movies found.
                     </h2>
                   </div>
@@ -147,13 +151,16 @@ class Display extends React.Component {
           boxShadow: "5px 10px 18px #888888"
         }}
       >
-        {/*Search component passes query string that user has typed into the input field */}
-        <Search
-          getSearchString={this.filterBySearch}
-          getGenre={this.filterByGenre}
-          getSorting={this.filterBySorting}
-          getTitle={this.setTitle}
-        />
+        {/*Search component passes query string that user has typed into the input field 
+        ErrorBoundary catches error and shows the fallback UI */}
+        <ErrorBoundary>
+          <Search
+            getSearchString={this.filterBySearch}
+            getGenre={this.filterByGenre}
+            getSorting={this.filterBySorting}
+            getTitle={this.setTitle}
+          />
+        </ErrorBoundary>
         {/* displays either movielisting or popcorn image depending on the if else above*/}
         {displayResult}
       </div>

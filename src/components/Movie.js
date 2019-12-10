@@ -16,12 +16,14 @@ function Movie(props) {
         </Col>
         {/*Movie component gets its properties from Display movies array*/}
         <Col md="auto">
-          <h3>{props.movieProps.title}</h3>
-          <h5>Story Overview:</h5>
+          <h3 className="heading3">{props.movieProps.title}</h3>    
+          <h5 className="heading5">Story Overview:</h5>
           <p>{props.movieProps.overview}</p>
-          <h5>Release Date:</h5>
+          <hr></hr>
+          <h5 className="heading5">Release Date:</h5>
           <p> {props.movieProps.release_date}</p>
-          <h5>Rating:</h5>
+          <hr></hr>
+          <h5 className="heading5">Rating:</h5>
           <p> {props.movieProps.vote_average}</p>
         </Col>
       </Row>

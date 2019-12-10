@@ -11,6 +11,7 @@
   text-align: center;
   margin-top: 15px;
   padding-top: 15px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .Jumbotron {
@@ -39,13 +40,17 @@
 }
 
 .Jumbotron h1 {
-  color: rgb(128, 13, 13);
+  color: rgb(163, 7, 7);
   font-size: 70px;
-  text-shadow: 2px 2px 4px #e6d0d0;
+  text-shadow: 2px 2px 4px #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 .Jumbotron h3 {
-  text-shadow: 2px 2px 4px #e6d0d0;
+  text-shadow: 2px 2px 4px #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;  
 }
 
 .movieList {
@@ -62,8 +67,7 @@
   background-color: white;
   border-radius: 10px;
   border-style: groove;
-
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 .form {
   padding-bottom: 20px;
@@ -118,11 +122,11 @@ input[type="radio"] {
 .TitleOfSearch {
   margin-top: 20px;
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .movieListing {
   margin-bottom: 100px;
-
 }
 
 .image {
@@ -130,4 +134,38 @@ input[type="radio"] {
     0 14px 12px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 20px;
   border-radius: 5%;
-   }
+}
+
+.heading2 {
+  color: rgb(163, 7, 7);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px #ffffff;
+}
+
+.heading3 {
+  color: rgb(163, 7, 7);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.heading5{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+
+
+.form {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-control:focus {
+  color: #495057 !important;
+    background-color: #fff !important;
+    border-color: #777777 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.2rem rgba(14, 14, 14, 0.16) !important;
+}
+
+

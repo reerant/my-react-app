@@ -17,7 +17,7 @@ class TitleOfSearch extends Component {
           if genre => title = value from the dropdown
           if sorting options => title = label from the radio button options                   
           */}
-          <h2 style={{color:"rgb(128, 13, 13)"}}>{this.props.title}</h2>
+          <h2 className="heading2">{this.props.title}</h2>
         </div>
         <br></br>
         <div className="col-md-12">
