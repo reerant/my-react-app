@@ -108,7 +108,7 @@ class Display extends React.Component {
       // shows the title of the search, clear list - button and the results for the movie search/query
       displayResult = (
         <>
-          {/*ErrorBoundary catches error and shows the fallback UI */}
+          {/*ErrorBoundary catches error (api calls don't work etc) and shows error message but doesn't break the whole UI */}
           <ErrorBoundary>
             <TitleOfSearch
               title={this.state.title}
@@ -152,7 +152,7 @@ class Display extends React.Component {
         }}
       >
         {/*Search component passes query string that user has typed into the input field 
-        ErrorBoundary catches error and shows the fallback UI */}
+        ErrorBoundary catches error (api calls don't work etc) and shows error message but doesn't break the whole UI*/}
         <ErrorBoundary>
           <Search
             getSearchString={this.filterBySearch}

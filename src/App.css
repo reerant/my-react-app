@@ -6,7 +6,7 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background: rgba(115, 114, 114, 1);
+  background: rgb(0, 0, 0);
   color: white;
   text-align: center;
   margin-top: 15px;
@@ -29,7 +29,7 @@
 }
 
 .navbar {
-  background-color: rgb(214, 214, 218);
+  background-color: rgb(0, 0, 0);
 }
 
 .navbar-header {
@@ -50,7 +50,7 @@
 .Jumbotron h3 {
   text-shadow: 2px 2px 4px #ffffff;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;  
+  font-weight: bold;
 }
 
 .movieList {
@@ -81,6 +81,14 @@
   background-color: white;
 }
 
+.home {
+  border-style: groove;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 20px;
+  background-color: white;
+}
+
 .formLabel {
   font-size: 20px;
   font-weight: bold;
@@ -88,7 +96,6 @@
 
 .buttonStyle {
   font-size: 17px;
-
   margin-bottom: 10px;
 }
 
@@ -149,12 +156,10 @@ input[type="radio"] {
   font-weight: bold;
 }
 
-.heading5{
+.heading5 {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
-
 
 .form {
   font-family: Arial, Helvetica, sans-serif;
@@ -162,10 +167,42 @@ input[type="radio"] {
 
 .form-control:focus {
   color: #495057 !important;
-    background-color: #fff !important;
-    border-color: #777777 !important;
-    outline: 0 !important;
-    box-shadow: 0 0 0 0.2rem rgba(14, 14, 14, 0.16) !important;
+  background-color: #fff !important;
+  border-color: #777777 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(14, 14, 14, 0.16) !important;
 }
 
+a.buttonLink {
+  background-color: #3b3b3b;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
 
+a.buttonLink:visited {
+  background-color: #3b3b3b;
+  color: white;
+  text-decoration: none;
+}
+
+a.buttonLink:hover {
+  background-color: #000000;
+  color: white !important;
+  text-decoration: none;
+}
+a.buttonLink:link {
+  background-color: #3b3b3b;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+a.homeLink:link {
+  text-decoration: none;
+}
+a.homeLink.hover {
+  text-decoration: none !important;
+}
