@@ -1,5 +1,5 @@
 What to Watch App - Build with React <br /><br />
-Application is created for searching movies by name or genre or sorting by most popular, top rated and upcoming options. Application uses The Movie Database TMDb API (https://developers.themoviedb.org/3/getting-started/introduction). Displays movies with posters, story overviews, release dates and ratings.
+This responsive application is created for searching movies by name or genre or sorting by most popular, top rated and upcoming options. Application uses The Movie Database TMDb API (https://developers.themoviedb.org/3/getting-started/introduction). Displays movies with posters, story overviews, release dates and ratings.
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
