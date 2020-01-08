@@ -1,4 +1,7 @@
 What to Watch App - Build with React <br /><br />
+
+What to Watch demo can be found at: https://what-to-watch-app.herokuapp.com/<br />
+
 This responsive application is created for searching movies by name or genre or sorting by most popular, top rated and upcoming options. Application uses The Movie Database TMDb API (https://developers.themoviedb.org/3/getting-started/introduction). Displays movies with posters, story overviews, release dates and ratings.<br />
 
 NOTE: After cloning the project, run the following:<br />
